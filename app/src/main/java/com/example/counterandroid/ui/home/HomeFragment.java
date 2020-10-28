@@ -35,9 +35,25 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         minus.setOnClickListener(this);
         reset.setOnClickListener(this);
         plus.setOnClickListener(this);
-        resetcounter();
+
         return root;
     }
+
+//    private View.OnClickListener cliklistener = new View.OnClickListener() {
+//        @Override
+//        public void onClick(View v) {
+//            case R.id.minus:
+//            pluscounter();
+//            break;
+//            case R.id.reset:
+//            txtCounter.setText(resetcounter());
+//            break;
+//            case R.id.plus:
+//            txtCounter.setText(mincounter());
+//            break;
+//
+//        }
+//    };
 
 //    public View onCreateView(@NonNull LayoutInflater inflater,
 //                             ViewGroup container, Bundle savedInstanceState) {
@@ -61,29 +77,29 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.minus:
-                txtCounter.setText(pluscounter());
+                minuscounter();
                 break;
             case R.id.reset:
-               txtCounter.setText(resetcounter());
+               resetcounter();
                 break;
             case R.id.plus:
-                txtCounter.setText(pluscounter());
+                pluscounter();
                 break;
     }
 }
 
-    private int pluscounter() {
-        int counter = 0;
-        return (counter++);
+    private void pluscounter() {
+        count++;
+        txtCounter.setText(count + "");
     }
 
-    private int resetcounter() {
-        int counter = 0;
-        return (counter);
+    private void resetcounter() {
+        count = 0;
+        txtCounter.setText(count+"");
     }
 
-    private int minuscounter() {
-        int counter = 0;
-        return (counter--);
+    private void minuscounter() {
+        count--;
+        txtCounter.setText(count+"");
     }
     }
